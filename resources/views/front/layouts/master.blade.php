@@ -7,7 +7,7 @@
 		  <meta name="description" content="">
 		  <meta name="author" content="">
 
-		  <title>موقع إعلانات مبوبة</title>
+		  <title>@yield('title')</title>
 
 		  <!-- Bootstrap core CSS -->
 		  <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -26,9 +26,44 @@
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarResponsive">
 				  <ul class="navbar-nav ml-auto">
-				  </ul>
-					<li class="nav-link"><a href="">دخول</a></li>
-					<li class="nav-link"><a href="">حساب جديد</a></li>
+                </ul>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('حساب جديد') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-link">
+                                <a href="/add" class="" >
+                                    <button type="button" class="btn btn-primary">إضافة اعلان جديد</button>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown right">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('خروج') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
 			  </div>
 			</div>
 		</nav>

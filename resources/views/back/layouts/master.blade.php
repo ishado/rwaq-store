@@ -9,16 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>لوحة التحكم</title>
+    <title>@yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="admin/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('admin/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="admin/sb-admin-2.css" rel="stylesheet">
+    <link href="{{asset('admin/sb-admin-2.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="admin/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('admin/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,12 +45,15 @@
                 <a class="navbar-brand" href="index.html">لوحة التحكم</a>
             </div>
             <!-- /.navbar-header -->
-
             <ul class="nav navbar-top-links navbar-left">
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                </ul>
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down">  {{ Auth::user()->name }} </i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -58,7 +61,15 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                    {{ __('خروج') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -137,16 +148,16 @@
     <!-- /#wrapper -->
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="admin/jquery-1.11.0.js"></script>
+    <script src="{{asset('admin/jquery-1.11.0.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="admin/bootstrap.min.js"></script>
+    <script src="{{asset('admin/bootstrap.min.js')}}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="admin/metisMenu.min.js"></script>
+    <script src="{{asset('admin/metisMenu.min.js')}}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="admin/sb-admin-2.js"></script>
+    <script src="{{asset('admin/sb-admin-2.js')}}"></script>
 
 
     <!-- DataTables JavaScript -->

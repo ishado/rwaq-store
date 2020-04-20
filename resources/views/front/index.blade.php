@@ -1,4 +1,5 @@
 @extends('front.layouts.master')
+@section('title', 'اخر الاعلانات')
 
 @section('content')
 

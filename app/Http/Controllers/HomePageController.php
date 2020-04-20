@@ -20,4 +20,10 @@ class HomePageController extends Controller
         $posts = Post::where('category_id', $id)->get();
         return view('front.byCategory', compact('posts'));
     }
+
+    public function adsDetails($id)
+    {
+        $post = Post::find($id);
+        return view('front.details', compact('post'));
+    }
 }
