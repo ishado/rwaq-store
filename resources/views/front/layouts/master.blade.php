@@ -13,7 +13,7 @@
 		  <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
 		  <!-- Custom styles for this template -->
-		  <link href="css/homepage.css" rel="stylesheet">
+		  <link href="{{asset('css/homepage.css')}}" rel="stylesheet">
 	</head>
 
 	<body >
@@ -100,8 +100,8 @@
 	  </footer>
 
 	 <!-- Bootstrap core JavaScript -->
-	 <script src="jquery/jquery.min.js"></script>
-	 <script src="js/bootstrap.bundle.min.js"></script>
+	 <script src="{{asset('jquery/jquery.min.js')}}"></script>
+	 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 
 	</body>
 

@@ -53,7 +53,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down">  {{ Auth::user()->name }} </i>
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"> {{ Auth::user()->name }} </i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -62,10 +62,9 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                                    {{ __('خروج') }}
+                                {{ __('خروج') }}
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -85,10 +84,10 @@
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                             <!-- /input-group -->
                         </li>
@@ -108,7 +107,8 @@
 
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-files-o fa-fw"></i><span class="fa arrow"></span> الإعلانات</a>
+                            <a href="forms.html"><i class="fa fa-files-o fa-fw"></i><span class="fa arrow"></span>
+                                الإعلانات</a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="">أضف إعلان جديد</a>
@@ -140,10 +140,10 @@
         <div id="page-wrapper">
             @yield('content')
 
-			<!-- /.row -->
-		</div>
-	</div>
-        <!-- /#page-wrapper -->
+            <!-- /.row -->
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
 
     <!-- /#wrapper -->
 
