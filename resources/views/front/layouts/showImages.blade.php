@@ -1,7 +1,7 @@
 @foreach ($posts as $post)
 @php
 $images = $post->images()->first();
-$image_name = $images['image_name'];
+$image_name = $images['image_name'] ?? '';
 @endphp
 <div class="col-lg-4 col-md-6 mb-4 text-right">
     <div class="card h-100">
