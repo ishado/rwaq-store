@@ -33,6 +33,6 @@ class PostController extends Controller
             $image->image_name = basename($filename);
             $post->images()->save($image);
         }
-        return back()->with('success','تم إضافة الاعلان بنجاح');
+        return redirect(route('index'))->with('success','تم إضافة الاعلان بنجاح');
     }
 }

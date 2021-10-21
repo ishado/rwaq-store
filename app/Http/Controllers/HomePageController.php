@@ -9,7 +9,7 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        $posts = Post::select('post_id','post_title','post_price')
+        $posts = Post::select('post_id','post_title','post_price','post_text')
                         ->latest()
                         ->paginate(9);
         return view('front.index' , compact('posts'));
@@ -21,7 +21,7 @@ class HomePageController extends Controller
         return view('front.byCategory', compact('posts'));
     }
 
-    public function adsDetails($id)
+    public function showProduct($id)
     {
         $post = Post::find($id);
         return view('front.details', compact('post'));

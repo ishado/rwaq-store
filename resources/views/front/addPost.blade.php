@@ -1,7 +1,6 @@
 @extends('front.layouts.master')
 @section('title', 'إضافة اعلان')
-
-
+<br>
 @section('content')
 <div class="container text-right">
     <div class="col-lg-10">
